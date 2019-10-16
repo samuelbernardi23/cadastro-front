@@ -6,11 +6,13 @@ export default function Dashboard({ history }) {
     const [valor, setValor] = useState('');
 
     useEffect(() => {
-
+        const _id = localStorage.getItem("_id");;
+        console.log(_id);
+        if (_id === undefined || _id === null) {
+            return history.push('/');
+        }
 
         async function verificacao() {
-            const _id = localStorage.getItem("_id");;
-
             const resposta = await api.get('/dashboard', {
                 headers: { _id }
             })
