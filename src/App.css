@@ -50,3 +50,11 @@ body{
   justify-content: center;
   margin-top: 12%;
 }
+
+.sucesso{
+  color: #43e97b;
+}
+
+.fracasso{
+  color: #ff4f4f;
+}
