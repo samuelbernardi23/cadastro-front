@@ -10,7 +10,7 @@ function App() {
   const [sobreNome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
-  const [teste, setTeste] = useState('');
+  const [teste, setTeste] = useState('Cadastro de usuários');
   const [respostaCadastro, setRespostaCadastro] = useState('');
 
   async function handleSubmit(event) {
@@ -21,18 +21,27 @@ function App() {
     });
 
     console.log(resposta);
-    if (!!resposta){
-       setTeste('Cadastrado com sucesso!');
-       setRespostaCadastro('sucesso');
-       let limpar = setTimeout(function () {
-      setNome('');
-      setSobrenome('');
-      setEmail('');
-      setSenha('');
-      setTeste('');
-    }, 3000)
+    if (resposta.data.resposta === "fracasso") {
+      setTeste('E-mail já está cadastrado!');
+      setRespostaCadastro('fracasso');
+      let limpar = setTimeout(function () {
+        setEmail('');
+        setTeste('Cadastro de usuários');
+        setRespostaCadastro('')
+      }, 3000)
+    } else {
+      setTeste('Cadastrado com sucesso!');
+      setRespostaCadastro('sucesso');
+      let limpar = setTimeout(function () {
+        setNome('');
+        setSobrenome('');
+        setEmail('');
+        setSenha('');
+        setTeste('Cadastro de usuários');
+        setRespostaCadastro('')
+      }, 3000)
 
-   }
+    }
   }
 
 
@@ -41,9 +50,9 @@ function App() {
       <header className="container">
         <div className="containerForm">
           <form action="#0" onSubmit={handleSubmit}>
-            <div>
+            
               <h3 className={respostaCadastro}>{teste}</h3>
-            </div>
+            
             <div>
               <input type="text" id="first_name"
                 value={nome} onChange={event => setNome(event.target.value)} required placeholder=" " />
