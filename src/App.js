@@ -13,7 +13,7 @@ function App() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const resposta = await api.post('/cadastrarMembros', {
+    const resposta = await api.post('/cadastrarMembro', {
       nome, email, idade
     });
 
