@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import './App.css';
 import api from './services/api';
+import './App.scss';
 
 
 
 function App() {
   const [nome, setNome] = useState('');
+  const [sobreNome, setSobrenome] = useState('');
   const [email, setEmail] = useState('');
-  const [idade, setIdade] = useState('');
+  const [senha, setSenha] = useState('');
 
 
   async function handleSubmit(event) {
     event.preventDefault();
 
     const resposta = await api.post('/cadastrarMembro', {
-      nome, email, idade
+      nome, sobreNome, email, senha
     });
 
     console.log(resposta);
@@ -24,23 +26,39 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
+      <header className="container">
         <div className="containerForm">
-          <form onSubmit={handleSubmit}>
-            <label>nome</label>
-            <input
-              value={nome}
-              onChange={event => setNome(event.target.value)}
-              type="text"></input>
-            <label htmlFor="">email</label>
-            <input type="text"
-              value={email}
-              onChange={event => setEmail(event.target.value)} />
-            <label htmlFor="">idade</label>
-            <input type="text"
-              value={idade}
-              onChange={event => setIdade(event.target.value)} />
-            <button type="submit">Cadastrar</button>
+          <form action="#0" onSubmit={handleSubmit}>
+            <div>
+              <input type="text" id="first_name" 
+              value={nome} onChange={event => setNome(event.target.value)} required placeholder=" " />
+              <label htmlFor="first_name">Nome</label>
+            </div>
+
+            <div>
+              <input type="text" id="last_name" 
+              value={sobreNome} onChange={event => setSobrenome(event.target.value)}  required placeholder=" " />
+              <label htmlFor="last_name">Sobrenome</label>
+            </div>
+
+            <div>
+              <input type="email" id="email" name=""
+              value={email} onChange={event => setEmail(event.target.value)}  required placeholder=" " />
+              <label htmlFor="email">E-mail</label>
+              <div className="requirements">
+                Ensira um e-mail válido.
+              </div>
+            </div>
+
+            <div>
+              <input type="password" id="password" name=""
+              value={senha} onChange={event => setSenha(event.target.value)}  required placeholder=" " pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" />
+              <label htmlFor="password">Senha</label>
+              <div className="requirements">
+                Sua senha deve ter pelo menos 6 caracteres e conter pelo menos uma letra maiúscula, uma minúscula e um número.
+              </div>
+            </div>
+            <input type="submit" value="Cadastrar" />
           </form>
         </div>
       </header>

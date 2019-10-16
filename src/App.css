@@ -2,28 +2,51 @@ body{
   margin: 0;
   padding: 0;
 
-  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%) !important;
 }
 
+
 .containerForm{
-  background-color: white;
+  
+  /* display: flex; */
+  justify-content: center;
+  align-items: center;
+
+  background-color: rgb(255, 255, 255);
   border-radius: 10px;
 
-  height: 300px;
-  width: 500px;
+  min-height: 300px;
+  width: 400px;
 }
 
 .containerForm form{
-  margin: 0px 20px;
-  padding: 10px 0;
+  padding-top: 20px;
   display: flex;
 
   flex-direction: column;
 }
 
-.containerForm form input{
-  border: 1px solid rgb(20, 220, 113);
+.containerForm form button{
+  margin: 20px 0px;
+  height: 45px;
+  background-color: rgb(96, 255, 144);
 
-  height: 22px;
-  border-radius: 7px;
+  border: none;
+  color: white;
+  font-size: 16px;
+
+  border-bottom: 4px solid rgb(0, 195, 91);
+}
+
+ h3{
+  text-align: center;
+}
+
+.container{
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 12%;
 }
