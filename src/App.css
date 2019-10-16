@@ -15,7 +15,7 @@ body{
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
 
-  min-height: 300px;
+  min-height: 240px;
   width: 400px;
 }
 
@@ -37,12 +37,18 @@ body{
   border-bottom: 4px solid rgb(0, 195, 91);
 }
 
- h3{
+.containerForm h3{
    color: rgb(129, 129, 129);
    position: relative;
   text-align: center;
 
   font-weight: 100;
+}
+
+.containerForm form p{
+  color: rgb(129, 129, 129);
+  position: relative;
+ text-align: center;
 }
 
 .container{
@@ -55,9 +61,9 @@ body{
 }
 
 .sucesso{
-  color: #43e97b;
+  color: #43e97b !important;
 }
 
 .fracasso{
-  color: #ff6b6b;
+  color: #ff6b6b !important;
 }
