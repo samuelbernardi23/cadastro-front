@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Dancing+Script&display=swap');
+
 body{
   margin: 0;
   padding: 0;
@@ -7,7 +9,9 @@ body{
 
 
 .containerForm{
-  
+  -webkit-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.48);
+  -moz-box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.48);
+  box-shadow: -11px 10px 30px -4px rgba(0,0,0,0.48);
   /* display: flex; */
   justify-content: center;
   align-items: center;
@@ -16,34 +20,10 @@ body{
   border-radius: 10px;
 
   min-height: 240px;
-  width: 400px;
+
+  padding-top:10px;
 }
 
-.containerForm form{
-  display: flex;
-
-  flex-direction: column;
-}
-
-.containerForm form button{
-  margin: 20px 0px;
-  height: 45px;
-  background-color: rgb(96, 255, 144);
-
-  border: none;
-  color: white;
-  font-size: 16px;
-
-  border-bottom: 4px solid rgb(0, 195, 91);
-}
-
-.containerForm h3{
-   color: rgb(129, 129, 129);
-   position: relative;
-  text-align: center;
-
-  font-weight: 100;
-}
 
 .containerForm form p{
   color: rgb(129, 129, 129);
@@ -51,13 +31,16 @@ body{
  text-align: center;
 }
 
+.containerForm form a{
+ text-decoration: none;
+}
 .container{
   align-items: center;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 12%;
+  min-height: 500px;
 }
 
 .sucesso{
@@ -66,4 +49,15 @@ body{
 
 .fracasso{
   color: #ff6b6b !important;
+}
+
+.container h3{
+  color: rgb(255, 255, 255);
+  position: relative;
+ text-align: center;
+
+ font-weight: 400;
+
+ font-size: 46px !important;
+ font-family: 'Dancing Script', cursive;
 }

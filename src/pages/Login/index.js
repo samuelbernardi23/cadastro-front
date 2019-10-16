@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import api from '../../services/api';
 
 export default function Login({ history }) {
+    localStorage.removeItem('_id');
+
     const [classeTitulo, setClasseTitulo] = useState('');
     const [titulo, setTitulo] = useState('Login de acesso');
 
@@ -17,8 +19,13 @@ export default function Login({ history }) {
             headers: { email, senha }
         });
 
-        if (resposta.data.resposta === "sucesso") {
+        if (resposta.data.resposta != false) {
             history.push('/dashboard');
+            console.log(resposta)
+
+            const { _id } = resposta.data;
+
+            await localStorage.setItem('_id', _id)
         } else {
             setTitulo('Usuário ou senha incorretos')
             setClasseTitulo('fracasso')
@@ -32,11 +39,11 @@ export default function Login({ history }) {
 
     return (
         <>
+            <h3 className={classeTitulo}>{titulo}</h3>
+
             <div className="containerForm">
                 <form action="#0" onSubmit={handleSubmit}>
-                    <div>
-                        <h3 className={classeTitulo}>{titulo}</h3>
-                    </div>
+
                     <div>
                         <input type="email" id="email" name=""
                             value={email} onChange={event => setEmail(event.target.value)} required placeholder=" " />
@@ -55,11 +62,11 @@ export default function Login({ history }) {
               </div>
                     </div>
                     <input type="submit" value="Entrar" />
-                  <a href="/cadastro">
-                  <p>Quero me 
+                    <a href="/cadastro">
+                        <p>Quero me
                         <b> inscrever</b>
-                    </p>
-                  </a>
+                        </p>
+                    </a>
                 </form>
 
             </div>
